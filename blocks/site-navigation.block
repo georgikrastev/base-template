@@ -1,23 +1,43 @@
-<nav class="site-navigation">
-  <ul class="site-navigation-list">
-    {.repeated section items}
+<nav class="nav nav--primary">
+	<ul>
+		{.repeated section items}
+			{.collection?}
+				{.folder?}
+					<li class="has-dropdown {.if folderActive}active{.end}">
+						<a href="{collection.fullUrl}">{collection.navigationTitle}</a>
 
-      <li class="site-navigation-item {.section active} active-link{.end}">
+						<div class="nav__dropdown">
+							<ul>
+								{.repeated section items}
+									{.collection?}
+										<li class="{.section active}active{.end}">
+											<a href="{collection.fullUrl}">{collection.navigationTitle}</a>
+										</li>
+									{.end}
 
-        <!-- collection link -->
-        {.section collection}
-          <a href="{fullUrl}">{navigationTitle}</a>
-        {.end}
-
-        <!-- external link -->
-        {.section externalLink}
-          <a href="{url}"{.section newWindow} target="_blank"{.end}>
-            {title}
-          </a>
-        {.end}
-
-      </li>
-
-    {.end}
-  </ul>
-</nav>
+									{.section externalLink}
+										<li>
+											<a href="{url}"{.section newWindow} target="_blank"{.end}>{title}</a>
+										</li>
+									{.end}
+								{.end}								
+							</ul>
+						</div><!-- /.nav__dropdown -->
+					</li>					
+				{.or}
+					{.section collection}
+						<li class="{.section active}active{.end}">
+							<a href="{fullUrl}">{navigationTitle}</a>
+						</li>
+					{.end}
+				{.end}
+			{.or}
+				{.section externalLink}
+					<li>
+						<a href="{url}"{.section newWindow} target="_blank"{.end}>{title}</a>
+					</li>
+				{.end}
+			{.end}
+		{.end}
+	</ul>
+</nav><!-- /.nav -->
