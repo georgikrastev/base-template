@@ -1,0 +1,15 @@
+{.section collection}
+	{.repeated section collections}    
+
+		{.equal? typeName "page"}
+		<section class="section section--default section--{urlId}">
+			<div class="shell">
+				<div class="section__inner">
+					{mainContent}
+				</div><!-- /.section__inner -->
+			</div><!-- /.shell -->
+		</section><!-- /.section section-/-default -->
+		{.end}
+
+	{.end}
+{.end}
