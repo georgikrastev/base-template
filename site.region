@@ -23,7 +23,7 @@
 					
 					<!-- site navigation -->
 					<div class="header__nav">
-						<squarespace:navigation navigationId="siteNav" template="site-navigation" />						
+						<squarespace:navigation navigationId="headerNav" template="header-navigation" />						
 					</div><!-- /.header__nav -->
 				</div><!-- /.header__inner -->
 			</div><!-- /.shell -->
@@ -38,7 +38,7 @@
 		<footer class="footer">
 			<div class="shell">
 				<div class="footer__inner">
-					<squarespace:block-field id="footerBlocks" columns="12" />					
+					<squarespace:block-field id="footerBlocks" label="Footer Blocks" columns="12" />					
 				</div><!-- /.footer__inner -->
 			</div><!-- /.shell -->
 		</footer><!-- /.footer -->
@@ -47,7 +47,7 @@
 
 	<!-- combo and minify scripts when not logged in -->
 	<squarespace:script src="jquery-3.3.1.min.js" combo="{.if authenticatedAccount}false{.or}true{.end}" />
-	<squarespace:script src="site.js" combo="{.if authenticatedAccount}false{.or}true{.end}" />
+	<squarespace:script src="main.js" combo="{.if authenticatedAccount}false{.or}true{.end}" />
 
 	<!-- other scripts, and footer code injection -->
 	{squarespace-footers}
